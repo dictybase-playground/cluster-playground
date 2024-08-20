@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokebrowser-deployment
+  labels:
+    app: pokebrowser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pokebrowser
+  template:
+    metadata:
+      labels:
+        app: pokebrowser
+    spec:
+      containers:
+        - name: pokebrowser
+          image: ktun95/pokebrowser:latest
+          ports:
+            - containerPort: 3000

@@ -1,0 +1,7 @@
+credentials
+logs
+notes
+secrets
+configmaps
+.tool-versions
+.kube

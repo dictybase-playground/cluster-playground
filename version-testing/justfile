@@ -1,0 +1,24 @@
+# Justfile
+set shell := ["zsh", "-cu"]
+
+cluster-setup:
+  ./set-up-cluster.zsh
+
+delete-cluster:
+  kops delete cluster --yes
+
+create-resources: 
+  ./create-cluster-resources.zsh
+
+delete-resources: 
+  ./delete-cluster-resources.zsh
+
+set-kops-version version:
+  ./set-kops-version.zsh {{version}}
+
+# Upgrade the cluster with the current version of kops
+upgrade:
+  ./upgrade-cluster.zsh
+
+upgrade-to version:
+  ./upgrade-to.zsh {{version}}
